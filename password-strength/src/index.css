@@ -1,0 +1,66 @@
+* , *::after , *::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+label {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+input {
+  height: 2em;
+}
+.strength {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 0.2em;
+}
+span {
+  border-radius: 10px;
+}
+span:first-child {
+  background-color: gray;
+  height: 5px;
+  grid-column: 1/2;
+  width: 100%;
+}
+span:nth-child(2) {
+  background-color: gray;
+  height: 5px;
+  grid-column: 2/3;
+  width: 100%;
+}
+span:nth-child(3) {
+  background-color: gray;
+  height: 5px;
+  grid-column: 3/4;
+  width: 100%;
+}
+span:nth-child(4) {
+  background-color: gray;
+  margin-top: 0.3em;
+  color: white;
+  height: 30px;
+  grid-column: 1/4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+span:nth-child(4)> p {
+  margin: 0;
+  font-size: 1em;
+}
