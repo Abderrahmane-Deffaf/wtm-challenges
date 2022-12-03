@@ -1,0 +1,201 @@
+/* variables and fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap");
+@font-face {
+  font-family: jenna-sue;
+  src: url(../font/JennaSue.ttf);
+}
+/* box sizing */
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* setting the max width */
+nav, .paragraph, .wrapper {
+  max-width: 107.5rem;
+}
+
+/* nav bar */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+header nav {
+  width: 100%;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-flow: row wrap;
+}
+header nav ul li:first-child {
+  flex-basis: 50%;
+}
+header nav ul li:first-child a > img {
+  max-width: 100%;
+}
+header nav ul li:nth-child(2) {
+  flex-basis: 50%;
+  text-align: right;
+}
+header nav ul li:nth-child(2) img {
+  width: 16%;
+}
+header nav ul a {
+  text-decoration: none;
+  color: #757575;
+  font-weight: 500;
+  font-size: 1.75em;
+}
+header nav ul [href="#"] {
+  color: #231F20;
+}
+header nav ul [href=register] {
+  background-color: #7F90F4;
+  padding: 0.4em 2em;
+  color: #fff;
+  font-weight: 800;
+  position: relative;
+}
+header nav ul [href=register]::after {
+  content: url("../Assets/register.svg");
+  position: absolute;
+  top: -19%;
+  left: 0;
+}
+header nav ul ul {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: inherit;
+  padding: 0;
+  margin: 0;
+  gap: 2em;
+}
+header nav ul .hidden {
+  display: none;
+}
+
+main .wrapper {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+main .wrapper .container {
+  display: block;
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+}
+main .wrapper .container .iwd {
+  flex-basis: 100%;
+}
+main .wrapper .container .iwd img {
+  width: 100%;
+}
+main .wrapper .container .text {
+  flex-basis: 100%;
+}
+main .wrapper .container .text img {
+  width: 100%;
+}
+main .wrapper .container .register {
+  margin-top: 1.5em;
+  flex-basis: 100%;
+}
+main .wrapper .container .register a {
+  text-decoration: inherit;
+  color: #fff;
+  background: linear-gradient(90deg, #4FC3F7 0%, #49A7F6 21%, #448EF4 44%, #4285F4 58%, #4586F4 67%, #5087F4 74%, #618BF4 80%, #7A8FF4 86%, #7F90F4 87%);
+  padding: 0.1em 0.66em;
+  font-weight: 800;
+  font-size: 2.5em;
+  position: relative;
+}
+main .wrapper .container .register a::after {
+  content: url("../Assets/register.svg");
+  position: absolute;
+  top: -19%;
+  left: 0;
+}
+main .wrapper .container .message {
+  top: 7.6rem;
+  left: 10rem;
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+main .wrapper .container .question,
+main .wrapper .container .line2,
+main .wrapper .container .icon,
+main .wrapper .container .pc,
+main .wrapper .container .line1,
+main .wrapper .container .message {
+  position: absolute;
+}
+main .wrapper .container .icon {
+  display: block;
+  bottom: -3rem;
+  left: -18rem;
+}
+main .wrapper .container .line1 {
+  display: block;
+  left: -38rem;
+  top: -3rem;
+}
+main .wrapper .container .pc {
+  display: none;
+  right: -20rem;
+}
+main .wrapper .container .line2 {
+  display: none;
+  bottom: -9rem;
+  right: -25rem;
+}
+main .wrapper .container .question {
+  bottom: -6rem;
+  right: -17rem;
+  display: none;
+}
+main .wrapper .paragraph {
+  flex-basis: 100%;
+}
+main .wrapper .paragraph p {
+  font-size: 5.4em;
+  font-family: jenna-sue;
+}
+
+@media screen and (min-width: 1100px) {
+  main .wrapper {
+    max-width: 70%;
+  }
+  main .wrapper .container {
+    width: 60%;
+  }
+  main .wrapper .container .iwd {
+    margin-bottom: 15rem;
+  }
+  main .wrapper .container .pc, main .wrapper .container .line2, main .wrapper .container .question, main .wrapper .container .message {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

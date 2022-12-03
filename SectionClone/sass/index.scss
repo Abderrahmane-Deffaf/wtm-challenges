@@ -1,0 +1,213 @@
+/* variables and fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+@font-face {
+  font-family: jenna-sue;
+  src: url(../font/JennaSue.ttf);
+}
+$nav-color-active : #231F20 ; 
+$nav-color-disactive : #757575;
+$main-white: #fff ; 
+$main-black: #000000 ; 
+$primary-color: #7F90F4 ; 
+$gradient: linear-gradient(90deg, #4FC3F7 0%, #49A7F6 21%, #448EF4 44%, #4285F4 58%, #4586F4 67%, #5087F4 74%, #618BF4 80%, #7A8FF4 86%, #7F90F4 87%); 
+
+/* box sizing */
+html {
+  box-sizing: border-box;
+
+}
+* , *::after , *::before {
+  box-sizing: inherit;
+  font-family: "Poppins" , sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+/* setting the max width */
+nav , .paragraph , .wrapper{
+  max-width: 107.5rem;
+}
+/* nav bar */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  nav {
+    width: 100%;
+    ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        flex-flow: row wrap;
+        li:first-child {
+          flex-basis: 50%;
+          a>img {
+            max-width: 100%;
+          }
+        }
+        li:nth-child(2) {
+          flex-basis: 50%;
+          text-align: right;
+          img {
+            width: 16%;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: $nav-color-disactive;
+          font-weight: 500;
+          font-size: 1.75em;
+        }
+        [href="#"] {
+          color: $nav-color-active;
+        }
+        [href="register"] {
+          background-color: $primary-color;
+          padding: 0.4em 2em;
+          color: $main-white;
+          font-weight: 800;
+          position: relative;
+        }
+        [href="register"]::after {
+          content: url("../Assets/register.svg");
+          position: absolute;
+          top: -19%;
+          left: 0;
+        }
+        ul {
+          flex-basis: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          list-style: inherit;
+          padding: 0;
+          margin: 0;
+          gap: 2em;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+  }
+}
+main {
+  .wrapper {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    
+    .container {
+      display: block;
+      width: 80%;
+      position: relative;
+      margin: 0 auto;
+      .iwd {
+        flex-basis: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      .text {
+        flex-basis: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      .register {
+        margin-top: 1.5em;
+        flex-basis: 100%;
+        a {
+          text-decoration: inherit;
+          color: $main-white;
+          background: $gradient;
+          padding: 0.1em 0.66em ;
+          font-weight: 800;
+          font-size: 2.5em;
+          position: relative;
+          &::after {
+            content: url("../Assets/register.svg");
+            position: absolute;
+            top: -19%;
+            left: 0;
+          }
+        }
+      }
+      .message {
+        top: 7.6rem;
+        left: 10rem;
+        display: none;
+        position: absolute;
+        width: 100%;
+      }
+        .question,
+        .line2,
+        .icon,
+        .pc,
+        .line1,
+        .message {
+          position: absolute;
+        }
+    
+        .icon {
+          display: block;
+          bottom: -3rem;
+          left: -18rem;
+        }
+    
+        .line1 {
+          display: block;
+          left: -38rem;
+          top: -3rem;
+        }
+    
+        .pc {
+          display: none;
+          right: -20rem;
+        }
+    
+        .line2 {
+          display: none;
+          bottom: -9rem;
+          right: -25rem;
+        }
+    
+        .question {
+          bottom: -6rem ;
+          right: -17rem; 
+          display: none;
+        }
+    }
+    .paragraph {
+      flex-basis: 100%;
+      p {
+        font-size: 5.4em;
+        font-family: jenna-sue;
+      }
+    }
+    
+  }
+}
+@media screen and (min-width:1100px) {
+  main {
+    .wrapper {
+      max-width: 70%;
+      .container {
+        .iwd {
+          margin-bottom: 15rem;
+        }
+          width: 60%;
+          .pc , .line2, .question , .message {
+            display: block;
+          }
+        }
+    }
+
+  }
+}
