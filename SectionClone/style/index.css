@@ -19,10 +19,11 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
+  font-size: calc(0.5em + 3vw);
 }
 
 /* setting the max width */
-nav, .paragraph, .wrapper {
+nav, .paragraph {
   max-width: 107.5rem;
 }
 
@@ -32,6 +33,7 @@ header {
   display: flex;
   justify-content: center;
   padding: 1em;
+  margin-bottom: 1rem;
 }
 header nav {
   width: 100%;
@@ -45,10 +47,10 @@ header nav ul {
   align-items: center;
   flex-flow: row wrap;
 }
-header nav ul li:first-child {
+header nav ul .logo {
   flex-basis: 50%;
 }
-header nav ul li:first-child a > img {
+header nav ul .logo a > img {
   max-width: 100%;
 }
 header nav ul li:nth-child(2) {
@@ -69,6 +71,9 @@ header nav ul [href="#"] {
 }
 header nav ul [href=register] {
   background-color: #7F90F4;
+  animation-name: color-changing;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
   padding: 0.4em 2em;
   color: #fff;
   font-weight: 800;
@@ -77,12 +82,20 @@ header nav ul [href=register] {
 header nav ul [href=register]::after {
   content: url("../Assets/register.svg");
   position: absolute;
-  top: -19%;
+  width: 100%;
+  display: block;
+  top: 0%;
   left: 0;
 }
+@keyframes color-changing {
+  50% {
+    background-color: #aeb9f7;
+  }
+}
 header nav ul ul {
-  flex-basis: 100%;
   display: flex;
+  width: 100%;
+  z-index: 1000;
   flex-direction: column;
   align-items: center;
   list-style: inherit;
@@ -94,107 +107,272 @@ header nav ul .hidden {
   display: none;
 }
 
+/* main section */
 main .wrapper {
-  max-width: 100%;
+  width: 100%;
   display: block;
   margin: 0 auto;
+  position: relative;
+  padding: 1.5em 1.5em;
+  overflow: hidden;
 }
-main .wrapper .container {
-  display: block;
+main .wrapper .iwd {
+  flex-basis: 100%;
+  margin-bottom: 20%;
+  margin-top: 15%;
+  text-align: center;
+  position: relative;
+}
+main .wrapper .iwd .message {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: 70%;
+}
+main .wrapper .iwd img {
   width: 80%;
+}
+main .wrapper .text {
+  flex-basis: 100%;
+  margin-bottom: 5rem;
   position: relative;
-  margin: 0 auto;
+  text-align: center;
 }
-main .wrapper .container .iwd {
-  flex-basis: 100%;
-}
-main .wrapper .container .iwd img {
-  width: 100%;
-}
-main .wrapper .container .text {
-  flex-basis: 100%;
-}
-main .wrapper .container .text img {
-  width: 100%;
-}
-main .wrapper .container .register {
-  margin-top: 1.5em;
-  flex-basis: 100%;
-}
-main .wrapper .container .register a {
-  text-decoration: inherit;
-  color: #fff;
-  background: linear-gradient(90deg, #4FC3F7 0%, #49A7F6 21%, #448EF4 44%, #4285F4 58%, #4586F4 67%, #5087F4 74%, #618BF4 80%, #7A8FF4 86%, #7F90F4 87%);
-  padding: 0.1em 0.66em;
-  font-weight: 800;
-  font-size: 2.5em;
-  position: relative;
-}
-main .wrapper .container .register a::after {
-  content: url("../Assets/register.svg");
-  position: absolute;
-  top: -19%;
-  left: 0;
-}
-main .wrapper .container .message {
-  top: 7.6rem;
-  left: 10rem;
-  display: none;
-  position: absolute;
-  width: 100%;
-}
-main .wrapper .container .question,
-main .wrapper .container .line2,
-main .wrapper .container .icon,
-main .wrapper .container .pc,
-main .wrapper .container .line1,
-main .wrapper .container .message {
-  position: absolute;
-}
-main .wrapper .container .icon {
+main .wrapper .text::after {
+  content: "";
   display: block;
-  bottom: -3rem;
-  left: -18rem;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  top: 0%;
+  right: 0%;
+  animation-name: left;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
-main .wrapper .container .line1 {
+main .wrapper .text::before {
+  content: "";
   display: block;
-  left: -38rem;
-  top: -3rem;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  animation-name: right;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
-main .wrapper .container .pc {
-  display: none;
-  right: -20rem;
-}
-main .wrapper .container .line2 {
-  display: none;
-  bottom: -9rem;
-  right: -25rem;
-}
-main .wrapper .container .question {
-  bottom: -6rem;
-  right: -17rem;
-  display: none;
-}
-main .wrapper .paragraph {
-  flex-basis: 100%;
-}
-main .wrapper .paragraph p {
-  font-size: 5.4em;
-  font-family: jenna-sue;
-}
-
-@media screen and (min-width: 1100px) {
-  main .wrapper {
-    max-width: 70%;
+@keyframes left {
+  10% {
+    width: 80%;
   }
-  main .wrapper .container {
+  50% {
     width: 60%;
   }
-  main .wrapper .container .iwd {
-    margin-bottom: 15rem;
+  100% {
+    width: 0%;
   }
-  main .wrapper .container .pc, main .wrapper .container .line2, main .wrapper .container .question, main .wrapper .container .message {
+}
+@keyframes right {
+  10% {
+    width: 10%;
+  }
+  50% {
+    width: 40%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+main .wrapper .text img {
+  width: 100%;
+}
+main .wrapper .text .line2 {
+  position: absolute;
+  width: 40%;
+  top: 100%;
+  right: -10%;
+}
+main .wrapper .text .question {
+  position: absolute;
+  width: 10%;
+  top: 150%;
+  right: 0%;
+  animation-name: scale-out;
+  animation-duration: 5s;
+}
+@keyframes scale-out {
+  0% {
+    scale: 0;
+  }
+}
+main .wrapper .text .icon {
+  position: absolute;
+  display: block;
+  width: 20%;
+  left: -10%;
+  animation-name: fade;
+  animation-duration: 8s;
+}
+main .wrapper .register {
+  margin-top: 1.5em;
+  margin-bottom: 6rem;
+  flex-basis: 80%;
+  text-align: center;
+}
+main .wrapper .register a {
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, #4FC3F7 0%, #49A7F6 21%, #448EF4 44%, #4285F4 58%, #4586F4 67%, #5087F4 74%, #618BF4 80%, #7A8FF4 86%, #7F90F4 87%);
+  padding: 0.4em 2em;
+  color: #fff;
+  font-weight: 800;
+  position: relative;
+  font-size: 1em;
+}
+main .wrapper .register a::after {
+  content: url("../Assets/register.svg");
+  position: absolute;
+  width: 100%;
+  display: block;
+  top: 0%;
+  left: 0;
+}
+main .wrapper .pc,
+main .wrapper .line1 {
+  position: absolute;
+}
+main .wrapper .line1 {
+  display: block;
+  width: 50%;
+  left: 0;
+  top: 3%;
+  rotate: 40deg;
+}
+main .wrapper .pc {
+  width: 15%;
+  right: -1rem;
+  top: 0;
+  animation-name: fade;
+  animation-duration: 8s;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+}
+main .paragraph {
+  flex-basis: 100%;
+  display: none;
+}
+main .paragraph p {
+  font-size: 8.4em;
+  font-family: jenna-sue;
+  position: relative;
+}
+main .paragraph p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  animation-name: reveal;
+  animation-fill-mode: forwards;
+  animation-duration: 8s;
+}
+@keyframes reveal {
+  to {
+    left: 100%;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  body {
+    font-size: calc(0.5em + 1.5vw);
+  }
+  main .wrapper .iwd img {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  body {
+    font-size: calc(0.5em + 0.2vw);
+  }
+  /* main section */
+  main .wrapper .iwd {
+    margin: 6rem 0 10rem 0;
+  }
+  main .wrapper .iwd .message {
+    top: 37%;
+    left: 50%;
+    width: 45%;
+  }
+  main .wrapper .iwd img {
+    width: 40%;
+  }
+  main .wrapper .text img {
+    width: 80%;
+  }
+  main .wrapper .text .question {
+    width: 7%;
+  }
+  main .wrapper .text .icon {
+    width: 15%;
+    left: -3%;
+  }
+  main .wrapper .register {
+    margin-bottom: 14rem;
+  }
+  main .wrapper .register a {
+    font-size: 3.5em;
+  }
+  main .wrapper .register a::after {
+    content: url("../Assets/register.svg");
+    position: absolute;
+    top: -10%;
+    left: 0;
+  }
+  main .wrapper .line1 {
+    width: 40%;
+    left: -8%;
+    rotate: 0deg;
+  }
+  main .wrapper .pc {
+    width: 10%;
+    top: 0;
+  }
+  main .paragraph {
     display: block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header nav {
+    width: 100%;
+  }
+  header nav ul .logo {
+    flex-basis: 30%;
+  }
+  header nav ul .logo a > img {
+    max-width: 100%;
+  }
+  header nav ul li:nth-child(2) {
+    display: none;
+  }
+  header nav ul ul {
+    flex-basis: 70%;
+    z-index: 0;
+    flex-direction: row;
+    gap: 2%;
+  }
+  header nav ul .hidden {
+    display: flex;
   }
 }
 
